@@ -1,0 +1,38 @@
+{
+  "name": "jet",
+  "displayName": "jet",
+  "description": "Go HTML Template (Jet)",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "jet",
+        "aliases": [
+          "HTML Template (Jet)",
+          "Jet"
+        ],
+        "extensions": [
+          ".jet",
+          ".html"
+        ],
+        "extensionDependencies": [
+          "html"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "jet",
+        "scopeName": "text.html.jet",
+        "path": "./syntaxes/jet.tmLanguage.json"
+      }
+    ]
+  }
+}

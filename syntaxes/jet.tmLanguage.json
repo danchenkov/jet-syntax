@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "HTML Template (Jet)",
+  "scopeName": "text.html.jet",
+  "fileTypes": ["jet"],
+  "patterns": [
+    {
+      "include": "text.html.basic"
+    },
+    {
+      "include": "#jet-comment"
+    }
+  ],
+  "repository": {
+    "jet-comment": {
+      "name": "comment.jet",
+      "begin": "{\\*",
+      "end": "\\*}",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.block.comment.jet"
+        }
+      }
+    }
+  }
+}
