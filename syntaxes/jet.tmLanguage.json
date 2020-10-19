@@ -9,9 +9,54 @@
     },
     {
       "include": "#jet-comment"
+    },
+    {
+      "include": "#go-block"
     }
   ],
   "repository": {
+    "string-double-quoted-jet": {
+      "name": "string.quoted.double.jet",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.jet"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.jet"
+        }
+      },
+      "patterns": [
+        {
+          "name": "constant.character.escape.jet",
+          "match": "\\\\\""
+        }
+      ]
+    },
+    "string-single-quoted-jet": {
+      "name": "string.quoted.single.jet",
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.jet"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.jet"
+        }
+      },
+      "patterns": [
+        {
+          "name": "constant.character.escape.jet",
+          "match": "\\\\'"
+        }
+      ]
+    },
     "jet-comment": {
       "name": "comment.jet",
       "begin": "{\\*",
@@ -21,6 +66,16 @@
           "name": "punctuation.definition.block.comment.jet"
         }
       }
+    },
+    "go-block": {
+      "name": "Embedded Go Code",
+      "begin": "{{",
+      "end": "}}",
+      "patterns": [
+        {
+          "include": "source.go"
+        }
+      ]
     }
   }
 }

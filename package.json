@@ -22,7 +22,8 @@
           ".html"
         ],
         "extensionDependencies": [
-          "html"
+          "html",
+          "vscode.go"
         ],
         "configuration": "./language-configuration.json"
       }
