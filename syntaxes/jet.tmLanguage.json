@@ -5,6 +5,9 @@
   "fileTypes": ["jet"],
   "patterns": [
     {
+      "include": "#frontMatter"
+    },
+    {
       "include": "text.html.basic"
     },
     {
@@ -15,6 +18,16 @@
     }
   ],
   "repository": {
+    "frontMatter": {
+      "begin": "\\A-{3}\\s*$",
+      "contentName": "meta.embedded.block.frontmatter",
+      "patterns": [
+        {
+          "include": "source.yaml"
+        }
+      ],
+      "end": "(^|\\G)-{3}|\\.{3}\\s*$"
+    },
     "string-double-quoted-jet": {
       "name": "string.quoted.double.jet",
       "begin": "\"",
