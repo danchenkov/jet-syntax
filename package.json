@@ -1,0 +1,25 @@
+{
+    "name": "jet",
+    "displayName": "jet",
+    "description": "Jet Templating Language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.54.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "jet",
+            "aliases": ["HTML Template (Jet)", "jet"],
+            "extensions": [".jet"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "jet",
+            "scopeName": "text.html.jet",
+            "path": "./syntaxes/jet.tmLanguage.json"
+        }]
+    }
+}

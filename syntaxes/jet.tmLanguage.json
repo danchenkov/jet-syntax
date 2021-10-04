@@ -1,0 +1,148 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "HTML Template (Jet)",
+  "scopeName": "text.html.jet",
+  "fileTypes": ["jet"],
+  "patterns": [
+    {
+      "include": "#frontMatter"
+    },
+    {
+      "include": "#jet-comment"
+    },
+    {
+      "include": "#go-blocks-begin"
+    },
+    {
+      "include": "#go-blocks-end"
+    },
+    {
+      "include": "#go-block"
+    },
+    {
+      "include": "text.html.basic"
+    }
+  ],
+  "repository": {
+    "frontMatter": {
+      "begin": "\\A-{3}\\s*$",
+      "contentName": "meta.embedded.block.frontmatter",
+      "patterns": [
+        {
+          "include": "source.yaml"
+        }
+      ],
+      "end": "(^|\\G)-{3}|\\.{3}\\s*$"
+    },
+    "go-blocks-begin": {
+      "name": "Embedded Go Code Blocks",
+      "begin": "{{(block|extends|yield)",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.codeblock.begin.source.go"
+        },
+        "1": {
+          "name": "keyword.codeblock.source.go"
+        }
+      },
+      "end": "}}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.codeblock.end.source.go"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.go"
+        }
+      ]
+    },
+    "go-blocks-end": {
+      "name": "Embedded Go Code Blocks",
+      "begin": "{{(end)",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.codeblock.begin.source.go"
+        },
+        "1": {
+          "name": "keyword.codeblock.source.go"
+        }
+      },
+      "end": "}}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.codeblock.end.source.go"
+        }
+      },
+      "patterns": [
+        {
+          "name": "punctuation.codeblock.source.go"
+        }
+      ]
+    },
+    "go-block": {
+      "name": "Embedded Go Code",
+      "begin": "{{",
+      "end": "}}",
+      "patterns": [
+        {
+          "include": "source.go"
+        }
+      ]
+    },
+    "string-double-quoted-jet": {
+      "name": "string.quoted.double.jet",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.jet"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.jet"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#go-block",
+          "name": "constant.character.escape.jet",
+          "match": "\\\\\""
+        }
+      ]
+    },
+    "string-single-quoted-jet": {
+      "name": "string.quoted.single.jet",
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.jet"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.jet"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#go-block",
+          "name": "constant.character.escape.jet",
+          "match": "\\\\'"
+        }
+      ]
+    },
+    "jet-comment": {
+      "name": "comment.jet",
+      "begin": "{\\*",
+      "end": "\\*}",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.block.comment.jet"
+        }
+      }
+    }
+  }
+}
