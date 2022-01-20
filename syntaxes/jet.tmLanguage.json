@@ -11,24 +11,16 @@
             "include": "#frontMatter"
         },
         {
-            "comment": "Keywords",
-            "name": "support.constant.jet",
-            "match": "(?<=\\{\\{)\\s*(if|else if|else|end|block|yield|range|extends|include|import)"
+            "comment": "Begin Jet code block",
+            "include": "jetBlockBegin"
         },
         {
-            "comment": "Public functions/fields",
-            "match": "(?<=[\\. {])[A-Z]\\w*(?=.*}})",
-            "name": "support.function.builtin.jet"
+            "comment": "End Jet code block",
+            "include": "jetBlockEnd"
         },
         {
-            "comment": "Built-in functions invoked",
-            "match": "\\b(isset|len|lower|upper|hasPrefix|hasSuffix|repeat|replace|splt|trimSpace|html|url|safeHtml|safeJs|raw|writeJson|map)\\b(?=\\()",
-            "name": "support.function.builtin.jet"
-        },
-        {
-            "comment": "Built-in functions pipped",
-            "match": "(?<=\\|)\\s*(lower|upper|hasPrefix|hasSuffix|repeat|replace|splt|trimSpace|html|url|safeHtml|safeJs|raw|writeJson)",
-            "name": "support.function.builtin.jet"
+            "comment": "Jet code block",
+            "include": "jetBlock"
         },
         {
             "html.format.enable": true,
@@ -57,7 +49,7 @@
             ],
             "end": "(^|\\G)-{3}|\\.{3}\\s*$"
         },
-        "goBlockBegin": {
+        "jetBlockBegin": {
             "name": "codeblock.begin.source.go",
             "begin": "\\{\\{(block|extends|yield)",
             "beginCaptures": {
@@ -80,7 +72,7 @@
                 }
             ]
         },
-        "goBlockEnd": {
+        "jetBlockEnd": {
             "name": "codeblock.end.source.go",
             "begin": "\\{\\{(end)",
             "beginCaptures": {
@@ -103,7 +95,7 @@
                 }
             ]
         },
-        "goBlock": {
+        "jetBlock": {
             "name": "codeblock.source.go",
             "begin": "\\{\\{",
             "end": "\\}\\}",
