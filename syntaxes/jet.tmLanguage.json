@@ -11,16 +11,24 @@
             "include": "#frontMatter"
         },
         {
-            "comment": "Begin Jet code block",
-            "include": "jetBlockBegin"
+            "comment": "Keywords",
+            "name": "support.constant.jet",
+            "match": "(?<=\\{\\{)\\s*(if|else if|else|end|block|yield|range|extends|include|import)"
         },
         {
-            "comment": "End Jet code block",
-            "include": "jetBlockEnd"
+            "comment": "Public functions/fields",
+            "match": "(?<=[\\. {])[A-Z]\\w*(?=.*}})",
+            "name": "support.function.builtin.jet"
         },
         {
-            "comment": "Jet code block",
-            "include": "jetBlock"
+            "comment": "Built-in functions invoked",
+            "match": "\\b(isset|len|lower|upper|hasPrefix|hasSuffix|repeat|replace|splt|trimSpace|html|url|safeHtml|safeJs|raw|writeJson|map)\\b(?=\\()",
+            "name": "support.function.builtin.jet"
+        },
+        {
+            "comment": "Built-in functions pipped",
+            "match": "(?<=\\|)\\s*(lower|upper|hasPrefix|hasSuffix|repeat|replace|splt|trimSpace|html|url|safeHtml|safeJs|raw|writeJson)",
+            "name": "support.function.builtin.jet"
         },
         {
             "html.format.enable": true,
@@ -48,62 +56,6 @@
                 }
             ],
             "end": "(^|\\G)-{3}|\\.{3}\\s*$"
-        },
-        "jetBlockBegin": {
-            "name": "codeblock.begin.source.go",
-            "begin": "\\{\\{(block|extends|yield)",
-            "beginCaptures": {
-                "0": {
-                    "name": "punctuation.codeblock.begin.source.go"
-                },
-                "1": {
-                    "name": "keyword.codeblock.source.go"
-                }
-            },
-            "end": "\\}\\}",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.codeblock.end.source.go"
-                }
-            },
-            "patterns": [
-                {
-                    "include": "source.go"
-                }
-            ]
-        },
-        "jetBlockEnd": {
-            "name": "codeblock.end.source.go",
-            "begin": "\\{\\{(end)",
-            "beginCaptures": {
-                "0": {
-                    "name": "punctuation.codeblock.begin.source.go"
-                },
-                "1": {
-                    "name": "keyword.codeblock.source.go"
-                }
-            },
-            "end": "\\}\\}",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.codeblock.end.source.go"
-                }
-            },
-            "patterns": [
-                {
-                    "name": "punctuation.codeblock.source.go"
-                }
-            ]
-        },
-        "jetBlock": {
-            "name": "codeblock.source.go",
-            "begin": "\\{\\{",
-            "end": "\\}\\}",
-            "patterns": [
-                {
-                    "include": "source.go"
-                }
-            ]
         }
     }
 }
