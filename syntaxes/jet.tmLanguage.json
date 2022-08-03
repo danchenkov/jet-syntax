@@ -11,6 +11,10 @@
             "include": "#frontMatter"
         },
         {
+            "comment": "Comments",
+            "include": "#comment-block"
+        },
+        {
             "comment": "Keywords",
             "name": "support.constant.jet",
             "match": "(?<=\\{\\{)\\s*(if|else if|else|end|block|yield|range|extends|include|import)"
@@ -47,12 +51,27 @@
         }
     ],
     "repository": {
+        "comment-block": {
+            "begin": "\\{\\*",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.comment.begin.jet"
+                }
+            },
+            "end": "\\*\\}",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.comment.end.jet"
+                }
+            },
+            "name": "comment.block.jet"
+        },
         "frontMatter": {
             "begin": "\\A-{3}\\s*$",
             "contentName": "meta.embedded.block.frontmatter",
             "patterns": [
                 {
-                    "include": "source.yaml"
+                    "include": "meta.embedded.block.yaml"
                 }
             ],
             "end": "(^|\\G)-{3}|\\.{3}\\s*$"
