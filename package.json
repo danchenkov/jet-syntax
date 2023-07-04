@@ -1,39 +1,53 @@
 {
-    "name": "jet",
-    "displayName": "jet",
-    "description": "Jet Templating Language",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.54.0"
-    },
-    "categories": [
-        "Programming Languages"
+  "name": "jet",
+  "displayName": "jet",
+  "description": "Jet Templating Language",
+  "publisher": "AlexeiDanchenkov",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "jet.helloWorld",
+        "title": "Hello World"
+      }
     ],
-    "contributes": {
-        "languages": [
-            {
-                "id": "jet",
-                "aliases": [
-                    "HTML Template (Jet)",
-                    "jet"
-                ],
-                "extensions": [
-                    ".jet"
-                ],
-                "configuration": "./language-configuration.json"
-            }
+    "languages": [
+      {
+        "id": "jet",
+        "aliases": [
+          "Jet Templating Language",
+          "jet"
         ],
-        "grammars": [
-            {
-                "language": "jet",
-                "scopeName": "text.html.jet",
-                "path": "./syntaxes/jet.tmLanguage.json",
-                "embeddedLanguages": {
-                    "meta.embedded.block.html": "html",
-                    "meta.embedded.block.yaml": "yaml",
-                    "meta.embedded.block.javascript": "javascript"
-                }
-            }
-        ]
-    }
+        "extensions": [
+          ".jet .html"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "jet",
+        "scopeName": "text.html.jet",
+        "path": "./syntaxes/jet.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.html": "html",
+          "meta.embedded.block.yaml": "yaml",
+          "meta.embedded.block.javascript": "javascript"
+        }
+      }
+    ]
+  },
+  "dependencies": {
+    "vscode": "^0.9.9"
+  },
+  "scripts": {},
+  "devDependencies": {
+    "@types/vscode": "^1.32.0"
+  }
 }
