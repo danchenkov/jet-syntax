@@ -2,7 +2,6 @@
     "name": "jet",
     "displayName": "jet",
     "description": "Jet Templating Language",
-    "publisher": "AlexeiDanchenkov",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.54.0"
@@ -10,17 +9,7 @@
     "categories": [
         "Programming Languages"
     ],
-    "activationEvents": [
-        "onCommand:jet.helloWorld"
-    ],
-    "main": "./extension.js",
     "contributes": {
-        "commands": [
-            {
-                "command": "jet.helloWorld",
-                "title": "Hello World"
-            }
-        ],
         "languages": [
             {
                 "id": "jet",
@@ -46,12 +35,5 @@
                 }
             }
         ]
-    },
-    "dependencies": {
-        "vscode": "^0.9.9"
-    },
-    "scripts": {},
-    "devDependencies": {
-        "@types/vscode": "^1.32.0"
     }
 }
