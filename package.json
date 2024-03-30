@@ -1,27 +1,21 @@
 {
   "name": "jet",
-  "displayName": "jet",
-  "description": "Jet Templating Language",
-  "publisher": "AlexeiDanchenkov",
-  "version": "0.0.2",
+  "displayName": "Jet Template Engine",
+  "description": "Jet template engine language syntax highlighting support",
+  "publisher": "Alexei Danchenkov",
+  "version": "0.0.27",
   "engines": {
-    "vscode": "^1.79.0"
+    "vscode": "^1.87.2"
   },
   "categories": [
     "Programming Languages"
   ],
   "contributes": {
-    "commands": [
-      {
-        "command": "jet.helloWorld",
-        "title": "Hello World"
-      }
-    ],
     "languages": [
       {
         "id": "jet",
         "aliases": [
-          "Jet Templating Language",
+          "Jet Template Engine",
           "jet"
         ],
         "extensions": [
@@ -36,18 +30,18 @@
         "scopeName": "text.html.jet",
         "path": "./syntaxes/jet.tmLanguage.json",
         "embeddedLanguages": {
-          "meta.embedded.block.html": "html",
-          "meta.embedded.block.yaml": "yaml",
-          "meta.embedded.block.javascript": "javascript"
+          "meta.embedded.html": "html",
+          "meta.embedded.frontmatter.yaml": "yaml"
         }
       }
     ]
   },
-  "dependencies": {
-    "vscode": "^0.9.9"
-  },
   "scripts": {},
   "devDependencies": {
     "@types/vscode": "^1.32.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danchenkov/jet-template.git"
   }
 }

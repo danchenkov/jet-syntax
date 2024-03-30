@@ -3,7 +3,8 @@
 	"name": "HTML Template (Jet)",
 	"scopeName": "text.html.jet",
 	"fileTypes": [
-		"jet"
+		"jet",
+		"html"
 	],
 	"patterns": [
 		{
@@ -12,7 +13,7 @@
 		},
 		{
 			"comment": "Comments",
-			"include": "#comment-block"
+			"include": "#commentBlock"
 		},
 		{
 			"comment": "Keywords",
@@ -35,8 +36,8 @@
 			"name": "support.function.builtin.jet"
 		},
 		{
-			"html.format.enable": true,
-			"include": "text.html.basic"
+			"comment": "Content",
+			"include": "#content"
 		},
 		{
 			"name": "string.quoted.double.jet",
@@ -51,30 +52,43 @@
 		}
 	],
 	"repository": {
-		"comment-block": {
+		"frontMatter": {
+			"begin": "^-{3}$",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.frontmatter.begin"
+				}
+			},
+			"end": "^-{3}$",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.frontmatter.end"
+				}
+			},
+			"name": "meta.embedded.frontmatter.yaml",
+			"patterns": [
+				{
+					"include": "source.yaml"
+				}
+			]
+		},
+		"commentBlock": {
 			"begin": "\\{\\*",
 			"beginCaptures": {
 				"0": {
-					"name": "punctuation.definition.comment.begin.jet"
+					"name": "punctuation.definition.comment.begin"
 				}
 			},
 			"end": "\\*\\}",
 			"endCaptures": {
 				"0": {
-					"name": "punctuation.definition.comment.end.jet"
+					"name": "punctuation.definition.comment.end"
 				}
 			},
-			"name": "comment.block.jet"
+			"name": "comment.block"
 		},
-		"frontMatter": {
-			"begin": "\\A-{3}\\s*$",
-			"contentName": "meta.embedded.block.frontmatter",
-			"patterns": [
-				{
-					"include": "meta.embedded.block.yaml"
-				}
-			],
-			"end": "(^|\\G)-{3}|\\.{3}\\s*$"
+		"content": {
+			"include": "text.html.basic"
 		}
 	}
 }
