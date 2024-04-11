@@ -1,9 +1,11 @@
 {
-  "name": "jet",
+  "name": "jet-syntax",
   "displayName": "Jet Template Engine",
   "description": "Jet template engine language syntax highlighting support",
-  "publisher": "Alexei Danchenkov",
-  "version": "0.0.27",
+  "author": "Alexei Danchenkov",
+  "publisher": "alexeidanchenkov",
+  "version": "0.0.28",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.87.2"
   },
@@ -42,6 +44,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danchenkov/jet-template.git"
+    "url": "https://github.com/danchenkov/jet-syntax.git"
   }
 }
