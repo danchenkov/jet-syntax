@@ -4,10 +4,10 @@
   "description": "Jet template engine language syntax highlighting support",
   "author": "Alexei Danchenkov",
   "publisher": "alexeidanchenkov",
-  "version": "0.0.30",
+  "version": "0.0.32",
   "license": "MIT",
   "engines": {
-    "vscode": "^1.90.0"
+    "vscode": "^1.94.0"
   },
   "categories": [
     "Programming Languages"
@@ -18,10 +18,12 @@
         "id": "jet",
         "aliases": [
           "Jet Template Engine",
+          "Jet",
           "jet"
         ],
         "extensions": [
-          ".jet .html"
+          ".jet",
+          ".html"
         ],
         "configuration": "./language-configuration.json"
       }
@@ -33,14 +35,15 @@
         "path": "./syntaxes/jet.tmLanguage.json",
         "embeddedLanguages": {
           "meta.embedded.html": "html",
-          "meta.embedded.frontmatter.yaml": "yaml"
+          "meta.embedded.frontmatter.yaml": "yaml",
+          "meta.embedded.frontmatter.xml": "xml"
         }
       }
     ]
   },
   "scripts": {},
   "devDependencies": {
-    "@types/vscode": "^1.90.0"
+    "@types/vscode": "^1.94.0"
   },
   "repository": {
     "type": "git",
