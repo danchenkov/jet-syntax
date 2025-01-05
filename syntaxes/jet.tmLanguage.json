@@ -18,6 +18,11 @@
 			"include": "#frontmatterXML"
 		},
 		{
+			"xml.format.enable": true,
+			"comment": "Front matter attributes in XML",
+			"include": "#xmlAttrs"
+		},
+		{
 			"comment": "Comments",
 			"include": "#commentBlock"
 		},
@@ -69,13 +74,13 @@
 	],
 	"repository": {
 		"frontmatterYAML": {
-			"begin": "^-{3}$",
+			"begin": "(?m)^---\\s*$",
 			"beginCaptures": {
-				"0": {
-					"name": "punctuation.definition.frontmatter.begin"
-				}
+			"0": {
+				"name": "punctuation.definition.frontmatter.begin"
+			}
 			},
-			"end": "^-{3}$",
+			"end": "(?m)^---\\s*$",
 			"endCaptures": {
 				"0": {
 					"name": "punctuation.definition.frontmatter.end"
