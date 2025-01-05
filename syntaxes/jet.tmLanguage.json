@@ -9,6 +9,7 @@
 	"patterns": [
 		{
 			"yaml.format.enable": true,
+<<<<<<< HEAD
 			"comment": "Front matter in YAML",
 			"include": "#frontMatterYAML"
 		},
@@ -16,16 +17,28 @@
 			"xml.format.enable": true,
 			"comment": "Front matter in XML",
 			"include": "#frontmatterXML"
+=======
+			"comment": "Front matter in YAML format",
+			"include": "#frontMatter"
+>>>>>>> 3726ca30e58cb67f43c95964edb201a24e1c56be
+		},
+		{
+			"xml.format.enable": true,
+			"comment": "Front matter attributes in XML",
+			"include": "#xmlAttrs"
 		},
 		{
 			"comment": "Comments",
 			"include": "#commentBlock"
 		},
 		{
+<<<<<<< HEAD
 			"comment": "Content blocks",
 			"include": "#contentBlock"
 		},
 		{
+=======
+>>>>>>> 3726ca30e58cb67f43c95964edb201a24e1c56be
 			"comment": "Control",
 			"name": "support.constant.jet",
 			"match": "(?<=\\{\\{)\\s*(if|else if|else|end|block|yield|range|extends|include|import)"
@@ -88,7 +101,11 @@
 				}
 			]
 		},
+<<<<<<< HEAD
 		"frontmatterXML": {
+=======
+		"xmlAttrs": {
+>>>>>>> 3726ca30e58cb67f43c95964edb201a24e1c56be
 			"begin": "^{{define \"Attrs\"}}$",
 			"beginCaptures": {
 				"0": {
@@ -108,6 +125,7 @@
 				}
 			]
 		},
+<<<<<<< HEAD
 		"contentBlock": {
 			"begin": "^{{define\\s.*?}}$",
 			"beginCaptures": {
@@ -128,6 +146,8 @@
 				}
 			]
 		},
+=======
+>>>>>>> 3726ca30e58cb67f43c95964edb201a24e1c56be
 		"commentBlock": {
 			"begin": "\\{\\*",
 			"beginCaptures": {

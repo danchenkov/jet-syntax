@@ -4,7 +4,7 @@
   "description": "Jet template engine language syntax highlighting support",
   "author": "Alexei Danchenkov",
   "publisher": "alexeidanchenkov",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "license": "MIT",
   "engines": {
     "vscode": "^1.96.0"
