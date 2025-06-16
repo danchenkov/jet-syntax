@@ -1,0 +1,29 @@
+---
+title: Explore Categories
+type: listing
+categories:
+  - science
+  - tech
+---
+
+{{category := Lookup("category", .Category[0])}}
+
+{{if isset(category)}}
+<ul class="explore">
+  {{range i, cat := category}}
+    <li class="explore__item">
+      <a href="{{cat[link]}}" class="explore__link">{{T(cat["title"])}}</a>
+    </li>
+  {{end}}
+</ul>
+{{else}}
+  <p>No categories found.</p>
+{{end}}
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit: {{.Title | upper}}. Asperiores ipsa similique quam in?</p>
+
+{{block Footer()}}
+  <footer>
+    <p>&copy; {{Year}}</p>
+  </footer>
+{{end}}

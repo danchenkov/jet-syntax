@@ -1,73 +1,79 @@
 {
-    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-    "name": "Jet Template",
-    "scopeName": "text.html.jet",
-    "fileTypes": ["jet"],
-    "patterns": [
-        { "include": "#frontmatterYAML" },
-        { "include": "#jetBlock" },
-        { "include": "text.html.basic" }
-    ],
-    "repository": {
-        "frontmatterYAML": {
-            "begin": "^---\\s*$",
-            "end": "^---\\s*$",
-            "name": "meta.embedded.block.frontmatter",
-            "contentName": "source.yaml",
-            "patterns": [
-                { "include": "source.yaml" }
-            ]
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Jet Template",
+  "scopeName": "text.html.jet",
+  "fileTypes": ["jet", "jet.html", "html"],
+  "patterns": [
+    { "include": "#frontmatterYAML" },
+    { "include": "#comment" },
+    { "include": "#jetBlock" },
+    { "include": "#quotedStrings" },
+    { "include": "#content" }
+  ],
+  "repository": {
+    "frontmatterYAML": {
+      "begin": "^---\\s*$",
+      "end": "^---\\s*$",
+      "name": "meta.embedded.block.frontmatter",
+      "contentName": "source.yaml",
+      "patterns": [
+        { "include": "source.yaml" }
+      ]
+    },
+    "comment": {
+      "begin": "\\{\\*",
+      "end": "\\*\\}",
+      "name": "comment.block.jet"
+    },
+    "jetBlock": {
+      "patterns": [
+        {
+          "name": "support.constant.jet",
+          "match": "(?<=\\{\\{)\\s*(if|else if|else|end|block|yield|range|extends|include|import|continue|break)"
         },
-        "jetBlock": {
-            "begin": "\\{\\{",
-            "beginCaptures": {
-                "0": { "name": "punctuation.section.embedded.begin.jet" }
-            },
-            "end": "\\}\\}",
-            "endCaptures": {
-                "0": { "name": "punctuation.section.embedded.end.jet" }
-            },
-            "name": "source.jet.embedded",
-            "patterns": [
-                { "include": "#controlBlock" },
-                { "include": "#expressions" },
-                { "include": "#quotedStrings" }
-            ]
+        {
+          "name": "keyword.operator.assignment.jet",
+          "match": ":="
         },
-        "controlBlock": {
-            "patterns": [
-                {
-                    "name": "keyword.control.jet",
-                    "match": "\\b(if|else if|else|end|range|block|yield|extends|include|import)\\b"
-                }
-            ]
+        {
+          "name": "variable.language.jet",
+          "match": "\\.[a-zA-Z_][a-zA-Z0-9_]*"
         },
-        "expressions": {
-            "patterns": [
-                {
-                    "name": "variable.assignment.jet",
-                    "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b(?=\\s*[:=])"
-                },
-                {
-                    "name": "support.function.jet",
-                    "match": "\\b(T|Lookup|isset|len|html|url|safeHtml|safeJs|repeat|replace|raw)\\b(?=\\()"
-                },
-                {
-                    "name": "variable.other.jet",
-                    "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
-                }
-            ]
+        {
+          "name": "variable.other.property.jet",
+          "match": "[a-zA-Z_][a-zA-Z0-9_]*(?=\\[)"
         },
-        "quotedStrings": {
-            "begin": "\"",
-            "end": "\"",
-            "name": "string.quoted.double.jet",
-            "patterns": [
-                {
-                    "name": "constant.character.escape.jet",
-                    "match": "\\\\."
-                }
-            ]
+        {
+          "name": "support.function.builtin.jet",
+          "match": "\\b(isset|len|lower|upper|hasPrefix|hasSuffix|repeat|replace|splt|trimSpace|html|url|safeHtml|safeJs|raw|writeJson|map|T|Lookup)\\b(?=\\()"
+        },
+        {
+          "name": "support.function.piped.jet",
+          "match": "(?<=\\|)\\s*(lower|upper|hasPrefix|hasSuffix|repeat|replace|splt|trimSpace|html|url|safeHtml|safeJs|raw|writeJson)"
+        },
+        {
+          "name": "punctuation.accessor.bracket.jet",
+          "match": "\\[|\\]"
+        },
+        {
+          "name": "constant.character.escape.jet",
+          "match": "\\\\."
         }
+      ]
+    },
+    "quotedStrings": {
+      "begin": "\"",
+      "end": "\"",
+      "name": "string.quoted.double.jet",
+      "patterns": [
+        {
+          "name": "constant.character.escape.jet",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "content": {
+      "include": "text.html.basic"
     }
+  }
 }
